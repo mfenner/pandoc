@@ -20,3 +20,4 @@ man/man?/*.html
 /windows/*.msi
 /windows/*.wixpdb
 windows/*.wixobj
+.vagrant
