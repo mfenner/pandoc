@@ -176,7 +176,7 @@ data Opt = Opt
     , optTeXLigatures      :: Bool       -- ^ Use TeX ligatures for quotes/dashes
     , optDefaultImageExtension :: String -- ^ Default image extension
     , optTrace             :: Bool       -- ^ Print debug information
-    , optTrackChanges      :: TrackChanges -- ^ Accept or reject MS Word track-changes. 
+    , optTrackChanges      :: TrackChanges -- ^ Accept or reject MS Word track-changes.
     }
 
 -- | Defaults for command-line options.
@@ -903,6 +903,7 @@ defaultWriterName x =
     ".texi"     -> "texinfo"
     ".texinfo"  -> "texinfo"
     ".db"       -> "docbook"
+    ".jats"     -> "jats"
     ".odt"      -> "odt"
     ".docx"     -> "docx"
     ".epub"     -> "epub"
@@ -1183,11 +1184,11 @@ main = do
                            else return
 
   doc <- case reader of
-          StringReader r-> 
+          StringReader r->
             readSources sources >>=
               handleIncludes' . convertTabs . intercalate "\n" >>=
               r readerOpts
-          ByteStringReader r -> readFiles sources >>= r readerOpts 
+          ByteStringReader r -> readFiles sources >>= r readerOpts
 
 
   let doc0 = M.foldWithKey setMeta doc metadata
