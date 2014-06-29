@@ -22,7 +22,7 @@ Description:     Pandoc is a Haskell library for converting from one markup
                  OpenDocument, ODT, Word docx, RTF, MediaWiki, Textile,
                  groff man pages, plain text, Emacs Org-Mode, AsciiDoc,
                  Haddock markup, EPUB (v2 and v3), FictionBook2,
-                 InDesign ICML, and several kinds of HTML/javascript
+                 InDesign ICML, JATS, and several kinds of HTML/javascript
                  slide shows (S5, Slidy, Slideous, DZSlides, reveal.js).
                  .
                  Pandoc extends standard markdown syntax with footnotes,
@@ -55,6 +55,7 @@ Data-Files:
                  data/templates/default.rst,
                  data/templates/default.plain,
                  data/templates/default.mediawiki,
+                 data/templates/default.jats,
                  data/templates/default.rtf,
                  data/templates/default.s5,
                  data/templates/default.slidy,
