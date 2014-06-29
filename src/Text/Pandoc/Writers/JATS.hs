@@ -270,7 +270,7 @@ inlinesToJATS opts lst = hcat $ map (inlineToJATS opts) lst
 inlineToJATS :: WriterOptions -> Inline -> Doc
 inlineToJATS _ (Str str) = text $ escapeStringForXML str
 inlineToJATS opts (Emph lst) =
-  inTagsSimple "emphasis" $ inlinesToÏ opts lst
+  inTagsSimple "emphasis" $ inlinesToJATS opts lst
 inlineToJATS opts (Strong lst) =
   inTags False "emphasis" [("role", "strong")] $ inlinesToJATS opts lst
 inlineToJATS opts (Strikeout lst) =
