@@ -90,7 +90,7 @@ module Text.Pandoc
                , writeHtmlString
                , writeICML
                , writeDocbook
-               , writeJATS
+               -- , writeJATS
                , writeOPML
                , writeOpenDocument
                , writeMan
