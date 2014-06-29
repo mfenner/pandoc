@@ -54,7 +54,7 @@ authorToJATS opts name' =
       colwidth = if writerWrapText opts
                     then Just $ writerColumns opts
                     else Nothing
-  in  B.rawInline "JATS" $ render colwidth $
+  in  B.rawInline "jats" $ render colwidth $
       if ',' `elem` name
          then -- last name first
               let (lastname, rest) = break (==',') name
