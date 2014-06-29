@@ -90,6 +90,7 @@ module Text.Pandoc
                , writeHtmlString
                , writeICML
                , writeDocbook
+               , writeJATS
                , writeOPML
                , writeOpenDocument
                , writeMan
@@ -142,6 +143,7 @@ import Text.Pandoc.Writers.EPUB
 import Text.Pandoc.Writers.FB2
 import Text.Pandoc.Writers.ICML
 import Text.Pandoc.Writers.Docbook
+import Text.Pandoc.Writers.JATS
 import Text.Pandoc.Writers.OPML
 import Text.Pandoc.Writers.OpenDocument
 import Text.Pandoc.Writers.Man
@@ -261,6 +263,7 @@ writers = [
      writeHtmlString o{ writerSlideVariant = RevealJsSlides
                       , writerHtml5 = True })
   ,("docbook"      , PureStringWriter writeDocbook)
+  ,("jats"         , PureStringWriter writeJATS)
   ,("opml"         , PureStringWriter writeOPML)
   ,("opendocument" , PureStringWriter writeOpenDocument)
   ,("latex"        , PureStringWriter writeLaTeX)
@@ -300,7 +303,7 @@ getReader :: String -> Either String Reader
 getReader s =
   case parseFormatSpec s of
        Left e  -> Left $ intercalate "\n" $ [m | Message m <- errorMessages e]
-       Right (readerName, setExts) -> 
+       Right (readerName, setExts) ->
            case lookup readerName readers of
                    Nothing  -> Left $ "Unknown reader: " ++ readerName
                    Just  (StringReader r)  -> Right $ StringReader $ \o ->
